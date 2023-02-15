@@ -17,7 +17,7 @@ public class AudioController : MonoBehaviour
 
     [SerializeField] Sprite soundOn;
     [SerializeField] Sprite soundOff;
-    [SerializeField]ButtonManagerBasicIcon buttonManagerBasicIcon;
+    [SerializeField]Image image;
 
     [SerializeField] Image whirlIcon;
     float rotationSpeed = 180f;
@@ -45,12 +45,14 @@ public class AudioController : MonoBehaviour
 
         if (audioSource.isPlaying)
         {
-            buttonManagerBasicIcon.buttonIcon = soundOff;
+
+            image.sprite = soundOff;
+            
             audioSource.Stop();
         }
         else
         {
-            buttonManagerBasicIcon.buttonIcon = soundOn;
+            image.sprite = soundOn;
             audioSource.Play();
         }
 
