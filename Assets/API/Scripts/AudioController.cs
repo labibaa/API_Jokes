@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Michsky.UI.ModernUIPack;
+using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class AudioController : MonoBehaviour
     [SerializeField] Sprite soundOn;
     [SerializeField] Sprite soundOff;
     [SerializeField]ButtonManagerBasicIcon buttonManagerBasicIcon;
-    
+
+    [SerializeField] Image whirlIcon;
+    float rotationSpeed = 180f;
+
 
     private void Awake()
     {
@@ -50,6 +54,13 @@ public class AudioController : MonoBehaviour
             audioSource.Play();
         }
 
+    }
+
+
+    public void Whirl()
+    {
+
+        whirlIcon.rectTransform.Rotate(new Vector3(0, 0, rotationSpeed));
     }
 
 
