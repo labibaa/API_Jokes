@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class AppleWholeState : AppleBaseState
 {
+    float rottenCountDown = 10f;
     public override void EnterState(AppleStateManager apple)
     {
-        throw new System.NotImplementedException();
+        apple.gameObject.GetComponent<Rigidbody>().useGravity = true;
     }
-    public override void OnCollisionEnter(AppleStateManager apple)
+    public override void OnCollisionEnter(AppleStateManager apple, Collision c)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("PlayerHealthincrease");
+        if (c.collider.tag=="Player")
+        {
+            apple.SwitchState(apple.ChewedState);
+        }
+       
     }
     public override void UpdateState(AppleStateManager apple)
     {
-        throw new System.NotImplementedException();
+        if (rottenCountDown>=0)
+        {
+            rottenCountDown-=Time.deltaTime;
+        }
+        else
+        {
+            apple.SwitchState(apple.RottenState);
+        }
     }
 }

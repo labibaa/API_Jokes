@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class AppleChewedState : AppleBaseState
 {
+    float timeToDestroyApple = 5f;
     public override void EnterState(AppleStateManager apple)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("aplle done eating");
     }
 
-    public override void OnCollisionEnter(AppleStateManager apple)
+    public override void OnCollisionEnter(AppleStateManager apple, Collision c)
     {
         throw new System.NotImplementedException();
     }
 
     public override void UpdateState(AppleStateManager apple)
     {
-        throw new System.NotImplementedException();
+        if (timeToDestroyApple >= 0)
+        {
+            timeToDestroyApple-=Time.deltaTime;
+        }
+        else
+        {
+            Object.Destroy(apple.gameObject);
+        }
     }
 
 

@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class AppleRottenState : AppleBaseState
 {
+    
     public override void EnterState(AppleStateManager apple)
     {
-        throw new System.NotImplementedException();
+        apple.GetComponent<Renderer>().material.color = Color.yellow;
     }
 
-    public override void OnCollisionEnter(AppleStateManager apple)
+    public override void OnCollisionEnter(AppleStateManager apple, Collision c)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("PlayerHealthDecrease");
     }
 
     public override void UpdateState(AppleStateManager apple)
     {
-        throw new System.NotImplementedException();
+        
     }
 }
