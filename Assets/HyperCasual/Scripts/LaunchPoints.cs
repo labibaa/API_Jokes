@@ -9,7 +9,7 @@ public class LaunchPoints : MonoBehaviour
     public Transform target;             // Target to shoot the projectile towards
     public float projectileSpeed = 1f;  // Speed at which the projectile moves
     public List<Transform> spawnPoints;
-    bool canSpawn = true;
+    
 
 
 
@@ -17,7 +17,7 @@ public class LaunchPoints : MonoBehaviour
     private void Start()
     {
         
-        InvokeRepeating("LaunchProjectile", 0f, 1.5f);
+        InvokeRepeating("LaunchProjectile", 0f, Random.Range(0.5f,1.5f));
     }
 
 
