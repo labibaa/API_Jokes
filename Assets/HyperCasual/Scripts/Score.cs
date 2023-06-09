@@ -14,21 +14,24 @@ public class Score : MonoBehaviour
     public static event Action<int> OnHighScoreChange;
     private void Awake()
     {
-        highScore = SaveData.instance.DeSerializeJson();
+        
         
     }
     private void Start()
     {
+        highScore = SaveData.instance.DeSerializeJson();
         OnHighScoreChange?.Invoke(highScore);
     }
 
     private void OnEnable()
     {
         DetectCollision.OnEnterHex += IncreaseScore;
+        DetectCollision.OnCollideHex += DecreaseScore;
     }
     private void OnDisable()
     {
         DetectCollision.OnEnterHex -= IncreaseScore;
+        DetectCollision.OnCollideHex -= DecreaseScore;
     }
 
     private void Update()
@@ -47,6 +50,16 @@ public class Score : MonoBehaviour
             highScore = score;
             SaveData.instance.SerializeJson(highScore);
             OnHighScoreChange?.Invoke(highScore);
+        }
+    }
+
+    void DecreaseScore()
+    {
+        score--;
+        if(score<0)
+        {
+            score = 0;
+            UIManager.instance.Activatepanel();
         }
     }
 
