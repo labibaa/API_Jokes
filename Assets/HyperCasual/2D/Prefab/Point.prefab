@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9214a8b00dea1743913219ff3ac2a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  burstBubble: {fileID: 7046261207885868122, guid: 4c3e32b43a3b56f41b1b4d4610cbc4bc,
+    type: 3}
 --- !u!96 &4246914023321138345
 TrailRenderer:
   serializedVersion: 2
