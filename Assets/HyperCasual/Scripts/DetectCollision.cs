@@ -18,6 +18,7 @@ public class DetectCollision : MonoBehaviour
             SpawnAndPlayParticleSystem(Color.black);
             OnCollideHex?.Invoke();
             Destroy(this.gameObject);
+            HexAudioController.instance.PlayAudio(HexAudioController.instance.Damaged);
            
         }
         else if (collision.CompareTag("Open"))
@@ -25,6 +26,7 @@ public class DetectCollision : MonoBehaviour
             SpawnAndPlayParticleSystem(Color.white);
             OnEnterHex?.Invoke();
             Destroy(this.gameObject);
+            HexAudioController.instance.PlayAudio(HexAudioController.instance.Scored);
         }
 
        

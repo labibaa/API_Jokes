@@ -17,7 +17,7 @@ public class LaunchPoints : MonoBehaviour
     private void Start()
     {
         
-        InvokeRepeating("LaunchProjectile", 0f, Random.Range(0.5f,1.5f));
+        InvokeRepeating("LaunchProjectile", 0f, Random.Range(0.5f,1.5f)); //it is invoked after a delay without using the update function
     }
 
 
