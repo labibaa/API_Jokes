@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     TextMeshProUGUI highScoreText;
     [SerializeField]
     GameObject gameOverPanel;
+    [SerializeField]
+    GameObject background;
 
     private void Awake()
     {
